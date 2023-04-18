@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="project@localhost">
-  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.48">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.45">
     <root id="1">
-      <DefaultCasing>lower/lower</DefaultCasing>
+      <DefaultCasing>mixed/mixed</DefaultCasing>
       <DefaultEngine>InnoDB</DefaultEngine>
       <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
       <Grants>|root||root|localhost|ALTER|G
@@ -37,7 +37,7 @@
 |root||root|localhost|grant option|G
 performance_schema|schema||mysql.session|localhost|SELECT|G
 sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
-      <ServerVersion>5.7.30</ServerVersion>
+      <ServerVersion>5.7.41</ServerVersion>
     </root>
     <collation id="2" parent="1" name="armscii8_bin">
       <Charset>armscii8</Charset>
@@ -749,48 +749,59 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <schema id="224" parent="1" name="information_schema">
       <CollationName>utf8_general_ci</CollationName>
     </schema>
-    <schema id="225" parent="1" name="lema10">
+    <schema id="225" parent="1" name="mysql">
       <CollationName>utf8_general_ci</CollationName>
     </schema>
-    <schema id="226" parent="1" name="modex">
-      <CollationName>latin1_swedish_ci</CollationName>
-    </schema>
-    <schema id="227" parent="1" name="modexlesson">
-      <CollationName>latin1_swedish_ci</CollationName>
-    </schema>
-    <schema id="228" parent="1" name="mysql">
-      <CollationName>latin1_swedish_ci</CollationName>
-    </schema>
-    <schema id="229" parent="1" name="new_schema">
-      <CollationName>latin1_swedish_ci</CollationName>
-    </schema>
-    <schema id="230" parent="1" name="new_schema2">
+    <schema id="226" parent="1" name="performance_schema">
       <CollationName>utf8_general_ci</CollationName>
     </schema>
-    <schema id="231" parent="1" name="performance_schema">
-      <CollationName>utf8_general_ci</CollationName>
-    </schema>
-    <schema id="232" parent="1" name="project">
+    <schema id="227" parent="1" name="project">
       <Current>1</Current>
       <CollationName>utf8_general_ci</CollationName>
     </schema>
-    <schema id="233" parent="1" name="sys">
+    <schema id="228" parent="1" name="sys">
       <CollationName>utf8_general_ci</CollationName>
     </schema>
-    <schema id="234" parent="1" name="u7647379_01">
-      <CollationName>latin1_swedish_ci</CollationName>
-    </schema>
-    <schema id="235" parent="1" name="usersdb">
-      <CollationName>latin1_swedish_ci</CollationName>
-    </schema>
-    <user id="236" parent="1" name="mysql.session">
+    <user id="229" parent="1" name="mysql.session">
       <Host>localhost</Host>
     </user>
-    <user id="237" parent="1" name="mysql.sys">
+    <user id="230" parent="1" name="mysql.sys">
       <Host>localhost</Host>
     </user>
-    <user id="238" parent="1" name="root">
+    <user id="231" parent="1" name="root">
       <Host>localhost</Host>
     </user>
+    <table id="232" parent="227" name="users">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8_general_ci</CollationName>
+    </table>
+    <column id="233" parent="232" name="ID">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>bigint(20)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="234" parent="232" name="NAME">
+      <DasType>varchar(100)|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="235" parent="232" name="LASTNAME">
+      <DasType>varchar(100)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="236" parent="232" name="AGE">
+      <DasType>int(11)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <index id="237" parent="232" name="PRIMARY">
+      <ColNames>ID</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="238" parent="232" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>

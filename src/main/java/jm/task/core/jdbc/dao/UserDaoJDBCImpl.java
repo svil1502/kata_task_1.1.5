@@ -17,8 +17,8 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
              Statement stat = connection.createStatement()) {
             stat.executeUpdate("CREATE TABLE IF NOT EXISTS users(" +
                     "ID BIGINT NOT NULL AUTO_INCREMENT, NAME VARCHAR(100), " +
-                    "LASTNAME VARCHAR(100), AGE INT, PRIMARY KEY (ID) )");
-            System.out.println("Table was created!");
+                    "LASTNAME VARCHAR(100), AGE TINYINT, PRIMARY KEY (ID) )");
+            System.out.println("Таблица создана");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -29,7 +29,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         try (Connection connection = getConnection();
              Statement stat = connection.createStatement()) {
             stat.executeUpdate("DROP TABLE IF EXISTS users");
-            System.out.println("Table was dropped");
+            System.out.println("Таблица удалена");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

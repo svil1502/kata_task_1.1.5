@@ -9,19 +9,13 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         UserService userService = new UserServiceImpl();
+        User user = new User("Иван", "Иванов", (byte) 90);
+        userService.saveUser(user.getName(), user.getLastName(), user.getAge());
+        userService.removeUserById(2);
         userService.createUsersTable();
-        List<User> users = new ArrayList<>();
-        users.add(new User("Ivan", "Ivanov", (byte) 45));
-        users.add(new User("Tatyana", "Ivanova", (byte) 44));
-        users.add(new User("Evgenii", "Semenov", (byte) 45));
-        users.add(new User("Roman", "Romanov", (byte) 44));
-        for (User us : users) {
-            userService.saveUser(us.getName(), us.getLastName(), (byte) us.getAge());
-            System.out.println("User с именем – " + us.getName() + " добавлен в базу данных");
-        }
-        List<User> usersTable = userService.getAllUsers();
-        for (User us : usersTable) {
-            System.out.println(us);
+        List<User> users = userService.getAllUsers();
+        for (User person : users) {
+            System.out.println(person);
         }
         userService.cleanUsersTable();
         userService.dropUsersTable();
